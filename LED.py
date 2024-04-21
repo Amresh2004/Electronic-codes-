@@ -9,4 +9,4 @@ for i in range(10):
     time.sleep(1)
     GPIO.output(LED1,False)
     time.sleep(1)
-GPIO.cleanup
+GPIO.cleanup()
