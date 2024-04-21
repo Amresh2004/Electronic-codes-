@@ -1,10 +1,12 @@
 #include <LiquidCrystal.h>
 #include <DHT.h>
 #define DHTPIN A5
-LiquidCrystallcd(8,9,4,5,6,7);
+LiquidCrystal
+lcd(8,9,4,5,6,7);
 #define DHTTYPE DHT11
 DHT dht(DHTPIN,DHTTYPE);
-chartemperature[]="Temp=00.0C";
+char
+temperature[]="Temp=00.0C";
 char humidity[]="RH=00.0%";
 void setup()
 {
@@ -18,7 +20,8 @@ void loop()
  byte Temp=dht.readtemperature();
  if(isnan(RH) || isnan(Temp))
  {
-    lcd.clear();
+    lcd.clear();
+
     lcd.setCursor(5,0);
     lcd.print("Error");
     return;
