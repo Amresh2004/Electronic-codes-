@@ -15,8 +15,8 @@ from time import sleep
 camera= picamera.PiCamera()
 camera.resolution= (1024,768)
 camera.brightness= 60
-camera.start_recording('output_video.h264')
+camera.start_preview()
 camera.annotate_text='SY Students'
 sleep(5)
-camera.capture('output_video.h264')
-camera.stop_recording()
+camera.capture('image.jpeg')
+camera.stop_preview()
