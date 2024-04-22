@@ -1,43 +1,43 @@
 #include <LiquidCrystal.h>
 #include <DHT.h>
 
-#define DHTPIN A5  // Pin where the DHT11 sensor is connected
-#define DHTTYPE DHT11  // DHT sensor type
+#define DHTPIN A5 
+#define DHTTYPE DHT11 
 
-LiquidCrystal lcd(8, 9, 4, 5, 6, 7);  // LCD initialization
-DHT dht(DHTPIN, DHTTYPE);  // DHT sensor initialization
+LiquidCrystal lcd(8, 9, 4, 5, 6, 7);  
+DHT dht(DHTPIN, DHTTYPE); 
 
-char temperature[] = "Temp=--.-C";  // Temperature display string
-char humidity[] = "RH=--.-%";       // Humidity display string
+char temperature[] = "Temp=--.-C";  
+char humidity[] = "RH=--.-%";     
 
 void setup() 
 {
-  lcd.begin(16, 2);  // Initialize the LCD with 16x2        dimensions
-  dht.begin();       // Initialize the DHT sensor
+  lcd.begin(16, 2); 
+  dht.begin();      
 }
 
 void loop() 
 {
-  delay(2000);  // Delay for 2 seconds between readings
+  delay(2000); 
 
-  float RH = dht.readHumidity();         // Read humidity from DHT sensor
-  float Temp = dht.readTemperature();    // Read temperature from DHT sensor in Celsius
+  float RH = dht.readHumidity();         
+  float Temp = dht.readTemperature();   
 
-  // Check if readings are valid
+
   if (isnan(RH) || isnan(Temp)) 
  {
-    lcd.clear();                       // Clear the LCD
+    lcd.clear();                     
     lcd.setCursor(0, 0);
-    lcd.print("Error: Check Sensor");  // Display error message if readings are invalid
+    lcd.print("Error: Check Sensor");  
     return;
   }
 
-  // Update temperature and humidity strings with new readings
-  dtostrf(Temp, 4, 1, &temperature[4]);  // Update temperature in the string
-  dtostrf(RH, 4, 1, &humidity[4]);        // Update humidity in the string
+ 
+  dtostrf(Temp, 4, 1, &temperature[4]); 
+  dtostrf(RH, 4, 1, &humidity[4]);  
 
-  // Display temperature and humidity on LCD
-  lcd.clear();  // Clear the LCD
+ 
+  lcd.clear();  
   lcd.setCursor(0, 0);
   lcd.print(temperature);
 
