@@ -1,5 +1,5 @@
 Hi there 👋
-**Amresh2004** is a ✨ _special_ ✨ repository b
+**Amresh2004** is a ✨ _special_ ✨ repository 
 appears on your GitHub profile.
 
 Here are some ideas to get you started:
